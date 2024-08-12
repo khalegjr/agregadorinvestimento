@@ -1,0 +1,24 @@
+volumes:
+  postgres-local:
+
+networks:
+  agregador_investimento:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-investimento
+    cpus: 0.5
+    mem_limit: 500m
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: springuser
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: agregador_investimento
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-local:/var/lib/postgresql/data
+    networks:
+      - agregador_investimento
