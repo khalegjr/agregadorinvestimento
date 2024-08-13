@@ -1,1 +1,14 @@
-spring.application.name=agregadorinvestimento
+spring:
+  application:
+    name: agregadorinvestimento
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:postgres://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5434}/agregador_investimento
+    username: ${POSTGRES_USERNAME:springuser}
+    password: ${POSTGRES_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
